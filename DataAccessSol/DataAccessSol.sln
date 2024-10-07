@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35323.107
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlConnection", "SqlConnection\SqlConnection.csproj", "{F2DA8381-26C0-4F56-B055-7D6A905D0F6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLib", "DataLib\DataLib.csproj", "{A50E6654-76C5-43E4-AD90-9A47ECBF6CF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2DA8381-26C0-4F56-B055-7D6A905D0F6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2DA8381-26C0-4F56-B055-7D6A905D0F6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2DA8381-26C0-4F56-B055-7D6A905D0F6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2DA8381-26C0-4F56-B055-7D6A905D0F6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A50E6654-76C5-43E4-AD90-9A47ECBF6CF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A50E6654-76C5-43E4-AD90-9A47ECBF6CF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A50E6654-76C5-43E4-AD90-9A47ECBF6CF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A50E6654-76C5-43E4-AD90-9A47ECBF6CF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2A8926B-95E4-45D1-9451-796B51DF6A48}
+	EndGlobalSection
+EndGlobal
