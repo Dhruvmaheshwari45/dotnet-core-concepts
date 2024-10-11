@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <title>@ViewBag.Title - DAC Bangalore</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <ul>
+        <li>@Html.ActionLink("All", "Index")</li>
+        <li>@Html.ActionLink("Add", "AddCustomer")</li>
+    </ul>
+
+    <div class="container body-content">
+        @RenderBody()
+
+    </div>
+</body>
+</html>

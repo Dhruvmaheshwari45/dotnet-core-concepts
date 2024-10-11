@@ -1,0 +1,79 @@
+﻿@using WebApplicationDay5Part1.Models;
+
+@model Person
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style type="text/css">
+        .field-validation-error, .validation-summary-errors {
+            color: red
+        }
+    </style>
+</head>
+<body>
+    @Html.ValidationSummary()
+    <h1>Hi from Home/Index</h1>
+    <div>
+        @{
+            IEnumerable<Person> people = (IEnumerable<Person>)ViewBag.People;
+        }
+        <table style="border:5px solid red ">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in people)
+                {
+                    <tr><td>@item.PersonName</td><td>@item.City</td></tr>
+                }
+            </tbody>
+        </table>
+
+        @*@using (Html.BeginForm())
+            {
+                <p>Name  : @Html.TextBox("PersonName")</p>
+                <p>City  : @Html.TextBoxFor(rng => rng.City)</p>
+                <p>Will You Attend : @Html.DropDownListFor(m => m.WillAttend, new SelectListItem[] {
+                                new SelectListItem{Text="Yes!! I will be there",Value=Boolean.TrueString},
+                                new SelectListItem{Text="No!! Sorry I can't Make It",Value=Boolean.FalseString}
+
+                                },
+                    "Please Make A Descission")</p>
+                <input type="submit" value="Submit"/>
+            }*@
+
+        @*@using (Html.BeginForm())
+            {
+                @Html.EditorForModel()
+                <input type="submit" value="Submit" />
+            }*@
+
+        @using (Html.BeginForm())
+        {
+            <p>Name  : @Html.TextBoxFor(p => p.PersonName)  @Html.ValidationMessageFor(p => p.PersonName) </p>
+            <p>City  : @Html.TextBoxFor(rng => rng.City) @Html.ValidationMessageFor(p => p.City)</p>
+            <p>
+                Will You Attend : @Html.DropDownListFor(m => m.WillAttend, new SelectListItem[] {
+new SelectListItem{Text="Yes!! I will be there",Value=Boolean.TrueString},
+new SelectListItem{Text="No!! Sorry I can't Make It",Value=Boolean.FalseString}
+},
+"Please Make A Descission")
+                @Html.ValidationMessageFor(p => p.WillAttend)
+            </p>
+            <input type="submit" value="Submit" />
+        }
+    </div>
+</body>
+</html>
+

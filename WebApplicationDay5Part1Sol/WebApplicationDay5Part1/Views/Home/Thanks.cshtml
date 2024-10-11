@@ -1,0 +1,28 @@
+﻿@model WebApplicationDay5Part1.Models.Person
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+</head>
+<body>
+    <div>
+        <h1 style="color:red">Thanks for RSVP : @Model.PersonName</h1>
+        @if (Model.WillAttend != null && Model.WillAttend == true)
+        {
+            <h2>Welcome to the party : From @Model.City</h2>
+        }
+        else
+        {
+            <h2>We will miss you : Call me sometime!!!</h2>
+        }
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,32 @@
+﻿@using MainMvc.Models.Abstract
+@model IEnumerable<Customer>
+
+@{
+    ViewBag.Title = "Employees Index";
+}
+
+<h1 class="btn btn-warning">Customer List</h1>
+
+<table class="table table-hover table-bordered table-striped" >
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Dept</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.CustName</td>
+                    <td>@item.CatId</td>
+                    <td>@Html.ActionLink("X", "RemoveCustomer", new {id=item.ID})</td>
+                    <td>@Html.ActionLink("Edit", "ModifyCustomer", new {id=item.ID})</td>
+                </tr>
+            }
+    </tbody>
+</table>

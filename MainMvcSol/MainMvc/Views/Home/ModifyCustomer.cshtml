@@ -1,0 +1,30 @@
+﻿@model MainMvc.Models.Abstract.Customer
+
+@{
+    ViewBag.Title = "ModifyCustomer";
+}
+
+<h2>Modify the Customer</h2>
+
+@using (Html.BeginForm())
+{
+    @*@Html.EditorForModel()*@
+
+    //can't change id while updation
+
+    <p>
+        <label for="ID">Customer ID</label>
+        @Html.DisplayFor(x => x.ID) 
+    </p>
+    <p>
+        <label for="CustName">Customer Name</label>
+        @Html.TextBoxFor(x => x.CustName)
+    </p>
+    <p>
+        <label for="CatId">Category ID</label>
+        @Html.TextBoxFor(x => x.CatId)
+    </p>
+
+    <input type="submit" value="Submit" />
+}
+

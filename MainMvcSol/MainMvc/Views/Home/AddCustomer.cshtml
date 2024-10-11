@@ -1,0 +1,28 @@
+﻿@model MainMvc.Models.Abstract.Customer
+
+@{
+    ViewBag.Title = "AddCustomer";
+}
+
+<h2>Add a Customer</h2>
+
+@using (Html.BeginForm())
+{
+    @*@Html.EditorForModel()*@
+
+    <p>
+        <label for="ID">Customer ID</label>
+        @Html.TextBoxFor(x => x.ID)
+    </p>
+    <p>
+        <label for="CustName">Customer Name</label>
+        @Html.TextBoxFor(x => x.CustName)
+    </p>
+    <p>
+        <label for="CatId">Category ID</label>
+        @Html.TextBoxFor(x => x.CatId)
+    </p>
+
+    <input type="submit" value="Submit" />
+}
+
