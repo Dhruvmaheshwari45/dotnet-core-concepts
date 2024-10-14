@@ -35,8 +35,6 @@ namespace WebAppValidation.Controllers
             //    )
             //{
             //    ModelState.AddModelError("", "Rahul is not available on monday!!!");
-
-
             //}
 
             if (ModelState.IsValid)
