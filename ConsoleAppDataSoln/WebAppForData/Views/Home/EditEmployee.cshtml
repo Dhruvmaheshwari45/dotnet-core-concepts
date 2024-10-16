@@ -1,0 +1,19 @@
+﻿@model DataLibraryEF.Employee
+
+@{
+    ViewBag.Title = "EditEmployee";
+}
+
+<h2>EditEmployee</h2>
+
+
+
+@using (Html.BeginForm())
+{
+    <p>Employee ID : @Html.DisplayFor(emp => emp.EId) @Html.HiddenFor(emp => emp.EId)</p>
+    @*<p>Employee ID : @Html.TextBoxFor(emp => emp.Eid)</p>*@
+    <p>Enter the Name : @Html.TextBoxFor(emp => emp.EName)</p>
+    <p>Enter the Dept : @Html.TextBoxFor(emp => emp.Dept)</p>
+
+    <input type="submit" value="Update Employee" />
+}

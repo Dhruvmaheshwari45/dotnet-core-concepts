@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -69,7 +70,7 @@ namespace ConsoleAppData
             using(DacWondersEntities dacWondersEntities = new DacWondersEntities())
             {
                 var empSelected = (from emp in dacWondersEntities.Employees
-                                   where emp.EId == 116
+                                   where emp.EId == 12
                                    select emp).First();
 
                 dacWondersEntities.Employees.Remove(empSelected);
