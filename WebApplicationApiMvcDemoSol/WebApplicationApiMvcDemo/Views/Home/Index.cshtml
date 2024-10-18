@@ -1,0 +1,34 @@
+﻿@model IEnumerable<DataLibEF.Employee>
+
+@{
+    ViewBag.Title = "Employee List";
+}
+
+<h2>Employee List</h2>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Department</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.EId</td>
+                    <td>@employee.EName</td>
+                    <td>@employee.Dept</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No employees found.</p>
+}
