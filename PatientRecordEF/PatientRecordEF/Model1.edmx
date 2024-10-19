@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MVCApiRecordModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Patientrecord">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="255" />
+          <Property Name="age" Type="int" />
+          <Property Name="gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="bloodType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="medicalCondition" Type="nvarchar" MaxLength="500" />
+          <Property Name="dateOfAdmission" Type="date" />
+          <Property Name="doctor" Type="nvarchar" MaxLength="255" />
+          <Property Name="hospital" Type="nvarchar" MaxLength="255" />
+          <Property Name="insuranceProvider" Type="nvarchar" MaxLength="255" />
+          <Property Name="billingAmount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="roomNumber" Type="int" />
+          <Property Name="admissionType" Type="nvarchar" MaxLength="100" />
+          <Property Name="dischargeDate" Type="date" />
+          <Property Name="medication" Type="nvarchar" MaxLength="255" />
+          <Property Name="testResults" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityContainer Name="MVCApiRecordModelStoreContainer">
+          <EntitySet Name="Patientrecord" EntityType="Self.Patientrecord" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MVCApiRecordModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Patientrecord">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="age" Type="Int32" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bloodType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="medicalCondition" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="dateOfAdmission" Type="DateTime" Precision="0" />
+          <Property Name="doctor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="hospital" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="insuranceProvider" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="billingAmount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="roomNumber" Type="Int32" />
+          <Property Name="admissionType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="dischargeDate" Type="DateTime" Precision="0" />
+          <Property Name="medication" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="testResults" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="MVCApiRecordEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Patientrecords" EntityType="Self.Patientrecord" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MVCApiRecordModelStoreContainer" CdmEntityContainer="MVCApiRecordEntities">
+          <EntitySetMapping Name="Patientrecords">
+            <EntityTypeMapping TypeName="MVCApiRecordModel.Patientrecord">
+              <MappingFragment StoreEntitySet="Patientrecord">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="bloodType" ColumnName="bloodType" />
+                <ScalarProperty Name="medicalCondition" ColumnName="medicalCondition" />
+                <ScalarProperty Name="dateOfAdmission" ColumnName="dateOfAdmission" />
+                <ScalarProperty Name="doctor" ColumnName="doctor" />
+                <ScalarProperty Name="hospital" ColumnName="hospital" />
+                <ScalarProperty Name="insuranceProvider" ColumnName="insuranceProvider" />
+                <ScalarProperty Name="billingAmount" ColumnName="billingAmount" />
+                <ScalarProperty Name="roomNumber" ColumnName="roomNumber" />
+                <ScalarProperty Name="admissionType" ColumnName="admissionType" />
+                <ScalarProperty Name="dischargeDate" ColumnName="dischargeDate" />
+                <ScalarProperty Name="medication" ColumnName="medication" />
+                <ScalarProperty Name="testResults" ColumnName="testResults" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
