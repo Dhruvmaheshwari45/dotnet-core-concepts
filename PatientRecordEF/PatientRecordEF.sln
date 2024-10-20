@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientRecordEF", "PatientRecordEF\PatientRecordEF.csproj", "{B2182DD8-4591-4B92-936A-B9654E27D9C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientRecordApiMVC", "PatientRecordApiMVC\PatientRecordApiMVC.csproj", "{59E6A125-704F-4AE6-A908-FF5F0FE6F908}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B2182DD8-4591-4B92-936A-B9654E27D9C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2182DD8-4591-4B92-936A-B9654E27D9C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2182DD8-4591-4B92-936A-B9654E27D9C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59E6A125-704F-4AE6-A908-FF5F0FE6F908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59E6A125-704F-4AE6-A908-FF5F0FE6F908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59E6A125-704F-4AE6-A908-FF5F0FE6F908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59E6A125-704F-4AE6-A908-FF5F0FE6F908}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

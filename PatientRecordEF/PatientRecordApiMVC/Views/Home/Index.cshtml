@@ -1,0 +1,61 @@
+﻿@model IEnumerable<PatientRecordEF.Patientrecord>
+
+@{
+    ViewBag.Title = "Advanced Patient Records";
+}
+
+<h2>Advanced Patient Records</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Blood Type</th>
+            <th>Medical Condition</th>
+            <th>Date of Admission</th>
+            <th>Doctor</th>
+            <th>Hospital</th>
+            <th>Insurance Provider</th>
+            <th>Billing Amount</th>
+            <th>Room Number</th>
+            <th>Admission Type</th>
+            <th>Discharge Date</th>
+            <th>Medication</th>
+            <th>Test Results</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.email</td>
+                <td>@item.age</td>
+                <td>@item.gender</td>
+                <td>@item.bloodType</td>
+                <td>@item.medicalCondition</td>
+                <td>@item.dateOfAdmission</td>
+                <td>@item.doctor</td>
+                <td>@item.hospital</td>
+                <td>@item.insuranceProvider</td>
+                <td>@item.billingAmount</td>
+                <td>@item.roomNumber</td>
+                <td>@item.admissionType</td>
+                <td>@item.dischargeDate</td>
+                <td>@item.medication</td>
+                <td>@item.testResults</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

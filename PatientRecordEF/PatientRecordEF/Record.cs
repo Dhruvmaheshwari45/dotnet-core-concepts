@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common.CommandTrees.ExpressionBuilder;
 using System.Linq;
+using System.Xml.Linq;
 
 namespace PatientRecordEF
 {
@@ -12,96 +14,35 @@ namespace PatientRecordEF
             using (MVCApiRecordEntities mVCApiRecordEntities = new MVCApiRecordEntities())
             {
                 // Fetch all records from the Patientrecords table and map them to PatientRecord class
-                List<Patientrecord> list = (from record in mVCApiRecordEntities.Patientrecords
-                                            select new Patientrecord
-                                            {
-                                                id = record.id,
-                                                name = record.name,
-                                                email = record.email,
-                                                age = record.age ?? 0, // Nullable types need conversion
-                                                gender = record.gender,
-                                                bloodType = record.bloodType,
-                                                medicalCondition = record.medicalCondition,
-                                                dateOfAdmission = record.dateOfAdmission ?? DateTime.MinValue,
-                                                doctor = record.doctor,
-                                                hospital = record.hospital,
-                                                insuranceProvider = record.insuranceProvider,
-                                                billingAmount = (decimal?)(double)(record.billingAmount ?? 0),
-                                                roomNumber = record.roomNumber ?? 0,
-                                                admissionType = record.admissionType,
-                                                dischargeDate = record.dischargeDate ?? DateTime.MinValue,
-                                                medication = record.medication,
-                                                testResults = record.testResults
-                                            }).ToList();
-
-                return list;
+                return mVCApiRecordEntities.Patientrecords.ToList();
             }
         }
 
-        public Patientrecord GetPatientRecordByID(int Id)
+        public Patientrecord GetPatientRecordByID(string Id)
         {
             using (MVCApiRecordEntities mVCApiRecordEntities = new MVCApiRecordEntities())
             {
-                var patientRecordEntity = mVCApiRecordEntities.Patientrecords
-                                         .FirstOrDefault(record => record.id == Id.ToString()); // Convert Id to string
+                return mVCApiRecordEntities.Patientrecords
+                                         .FirstOrDefault(record => record.id.Equals(Id, StringComparison.OrdinalIgnoreCase)); // Convert Id to string
 
-                if (patientRecordEntity == null)
-                {
-                    return null;
-                }
-
-                // Map the entity to the PatientRecord class
-                Patientrecord patientRecord = new Patientrecord
-                {
-                    id = patientRecordEntity.id,
-                    name = patientRecordEntity.name,
-                    email = patientRecordEntity.email,
-                    age = patientRecordEntity.age ?? 0,
-                    gender = patientRecordEntity.gender,
-                    bloodType = patientRecordEntity.bloodType,
-                    medicalCondition = patientRecordEntity.medicalCondition,
-                    dateOfAdmission = patientRecordEntity.dateOfAdmission ?? DateTime.MinValue,
-                    doctor = patientRecordEntity.doctor,
-                    hospital = patientRecordEntity.hospital,
-                    insuranceProvider = patientRecordEntity.insuranceProvider,
-                    billingAmount = (decimal?)(double)(patientRecordEntity.billingAmount ?? 0),
-                    roomNumber = patientRecordEntity.roomNumber ?? 0,
-                    admissionType = patientRecordEntity.admissionType,
-                    dischargeDate = patientRecordEntity.dischargeDate ?? DateTime.MinValue,
-                    medication = patientRecordEntity.medication,
-                    testResults = patientRecordEntity.testResults
-                };
-
-                return patientRecord;
             }
         }
 
-        public Patientrecord GetEmployeeByName(Patientrecord patientrecord)
+        public Patientrecord GetPatientRecordByName(string name)
         {
             using (MVCApiRecordEntities mVCApiRecordEntities = new MVCApiRecordEntities())
             {
-                var record = mVCApiRecordEntities.Patientrecords
-                    .FirstOrDefault(r => r.name.Equals(patientrecord.name, StringComparison.OrdinalIgnoreCase));
-
-                if (record == null)
-                {
-                    return null;
-                }
-                return record;
+                return mVCApiRecordEntities.Patientrecords
+                    .FirstOrDefault(r => r.name.Equals(name, StringComparison.OrdinalIgnoreCase));
             }
         }
 
-        public Patientrecord GetPatientrecordByBloodGroud(Patientrecord patientrecord)
+        public Patientrecord GetPatientRecordByBloodGroup(string bloodGroup)
         {
             using (MVCApiRecordEntities mVCApiRecordEntities = new MVCApiRecordEntities())
             {
-                var record = mVCApiRecordEntities.Patientrecords
-                    .FirstOrDefault(r => r.bloodType.Equals(patientrecord.bloodType, StringComparison.OrdinalIgnoreCase));
-
-                if (record == null) {
-                    return null;
-                }
-                return record;
+                return mVCApiRecordEntities.Patientrecords
+                    .FirstOrDefault(r => r.bloodType.Equals(bloodGroup, StringComparison.OrdinalIgnoreCase));
             }
         }
 
@@ -109,14 +50,13 @@ namespace PatientRecordEF
         {
             using (MVCApiRecordEntities mVCApiRecordEntities = new MVCApiRecordEntities())
             {
-                var record = mVCApiRecordEntities.Patientrecords
+                return mVCApiRecordEntities.Patientrecords
                     .FirstOrDefault(r => r.dateOfAdmission == dateTime);
 
-                if (record == null)
-                {
-                    return null;
-                }
-                return record;
+                //return mVCApiRecordEntities.Patientrecords
+                //        .Where(r => DbFunctions.TruncateTime(r.dateOfAdmission) == date.Date)
+                //        .ToList();
+
             }
         }
 
@@ -124,14 +64,9 @@ namespace PatientRecordEF
         {
             using (MVCApiRecordEntities mVCApiRecordEntities = new MVCApiRecordEntities())
             {
-                var record = mVCApiRecordEntities.Patientrecords
+                return mVCApiRecordEntities.Patientrecords
                     .FirstOrDefault(r => r.medicalCondition.Equals(condition, StringComparison.OrdinalIgnoreCase));
 
-                if (record == null)
-                {
-                    return null;
-                }
-                return record;
             }
         }
 
@@ -166,12 +101,12 @@ namespace PatientRecordEF
             }
         }
 
-        public void DeletePatientRecord(int Id)
+        public void DeletePatientRecord(string Id)
         {
             using (MVCApiRecordEntities mVCApiRecordEntities = new MVCApiRecordEntities())
             {
                 var record = mVCApiRecordEntities.Patientrecords
-                    .FirstOrDefault(r => r.id == Id.ToString());
+                    .FirstOrDefault(r => r.id.Equals(Id, StringComparison.OrdinalIgnoreCase));
                 if (record == null)
                 {
                     return;
