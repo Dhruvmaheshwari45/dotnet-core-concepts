@@ -1,0 +1,38 @@
+﻿@model DataAccessLayer.EmpOrm
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Employee</h2>
+
+@using (Html.BeginForm())
+ {
+    @Html.AntiForgeryToken();
+    <h4>Edit an Employee</h4>
+    <hr />
+
+    @Html.ValidationSummary(true);
+
+    @Html.HiddenFor(model => model.EmpId)
+
+    <div>
+        @Html.LabelFor(model => model.EmpName)
+        @Html.EditorFor(model => model.EmpName)
+        @Html.ValidationMessageFor(model => model.EmpName)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.DeptId)
+        @Html.EditorFor(model => model.DeptId)
+        @Html.ValidationMessageFor(model => model.DeptId)
+    </div>
+
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+ }
+
+<p>
+    @Html.ActionLink("Back to Employee list", "Index")
+</p>
+

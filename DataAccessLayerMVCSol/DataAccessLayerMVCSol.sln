@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayerMVC", "DataA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMvcApplication", "WebMvcApplication\WebMvcApplication.csproj", "{A8B39079-FD76-49DB-B34E-91F32378A68E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiMvcApplication", "WebApiMvcApplication\WebApiMvcApplication.csproj", "{F45B1738-C8B6-4D15-A16A-C8776A6BC44B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A8B39079-FD76-49DB-B34E-91F32378A68E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8B39079-FD76-49DB-B34E-91F32378A68E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8B39079-FD76-49DB-B34E-91F32378A68E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F45B1738-C8B6-4D15-A16A-C8776A6BC44B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F45B1738-C8B6-4D15-A16A-C8776A6BC44B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F45B1738-C8B6-4D15-A16A-C8776A6BC44B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F45B1738-C8B6-4D15-A16A-C8776A6BC44B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
