@@ -1,0 +1,42 @@
+﻿@model IEnumerable<EntityModelMVC.Properties.EMPLOYEE>
+
+@{
+    ViewBag.Title = "List of All Employee";
+}
+
+<h2>List of All Employee</h2>
+
+<p>
+    @Html.ActionLink("Add new Employee", "Create", null, new { @class = "btn btn-primary mb-3" })
+</p>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Employee Id</th>
+            <th>Employee Name</th>
+            <th>Department ID</th>
+            <th class="text-center">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EId</td>
+                <td>@item.EName</td>
+                <td>@item.DeptId</td>
+                <td class="text-center">
+                    <!--Edit Employee-->
+                    @Html.ActionLink("Edit", "Edit", new { id = item.EId }, new { @class = "btn btn-warning btn-sm" })
+
+                    <!--Delete Employee-->
+                    @using (Html.BeginForm("Delete", "Home", new { id = item.EId }, FormMethod.Post, new { @class = "d-inline" }))
+                    {
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+﻿@model EntityModelMVC.Properties.EMPLOYEE
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Employee</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h4>Add new Employee</h4>
+    <hr />
+
+    @Html.ValidationSummary(true)
+
+    <div>
+        @Html.LabelFor(model => model.EId)
+        @Html.EditorFor(model => model.EId)
+        @Html.ValidationMessageFor(model => model.EId)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.EName)
+        @Html.EditorFor(model => model.EName)
+        @Html.ValidationMessageFor(model => model.EName)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.DeptId)
+        @Html.EditorFor(model => model.DeptId)
+        @Html.ValidationMessageFor(model => model.DeptId)
+    </div>
+
+    <div>
+        <input type="submit" value="Create" />
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Back to Employee list", "Index")
+</p>
+
